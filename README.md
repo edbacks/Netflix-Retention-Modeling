@@ -105,7 +105,7 @@ Columns removed due to redundancy or poor data quality:
 
 **Outlier Removal** — Watch duration anomalies filtered using:
 ```python
-watch_duration_minutes / duration_minutes < 3
+watch_duration_minutes / duration_minutes >= 3
 ```
 
 **Missing Values** — Replaced using median imputation.
