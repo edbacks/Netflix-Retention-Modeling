@@ -216,22 +216,44 @@ The Random Forest model shows strong classification performance with a high ROC-
 The confusion matrix summarizes the model’s predictions by comparing actual vs predicted churn outcomes.
 
 **Key insight:**  
-The model correctly identifies a large portion of churn users (high recall), but some non-churn users are misclassified, suggesting a trade-off between precision and recall.>
+The model correctly identifies a large portion of churn users (high recall), but some non-churn users are misclassified, suggesting a trade-off between precision and recall.
+
+---
+## Conclusion
+
+### Key Findings
+
+- Decreased **recent activity (recency)** is strongly associated with higher churn risk  
+- Lower **session frequency** indicates declining user engagement  
+- Reduced **content diversity** suggests weakening interest in the platform  
+
+→ Overall, declining engagement is the strongest signal of potential churn
+
 ---
 
-## Key Insights
+### Project Goal
 
-- User engagement patterns strongly predict churn risk.
-- Session frequency and completion behavior are important indicators of retention.
-- Logistic Regression achieved the best ranking performance (ROC-AUC).
-- Random Forest achieved the highest recall and F1 score.
+The primary goal of this project is not only to predict churn,  
+but to generate actionable insights that can be applied in real-world retention strategies.
 
-## Key Findings (Preliminary)
+---
 
-- **Session frequency** is the strongest early signal of churn risk
-- Users with declining `completion_ratio` are more likely to churn
-- **Genre diversity** tends to increase long-term retention
-- Longer inactivity (`recency_days`) strongly indicates churn risk
+### Business Implications
+
+Based on the findings, the following strategies can be supported:
+
+#### 1. Early Warning System
+- Identify users with high churn probability in advance  
+- Enable retention teams to proactively target at-risk users  
+
+#### 2. Personalized Recommendation Enhancement
+- Recommend tailored content to users with declining activity  
+- Re-engage users before churn behavior becomes permanent  
+
+#### 3. User Re-engagement Strategies
+- Send notifications or curated content to inactive users  
+- Use email campaigns, in-app alerts, or recommendation lists to drive return visits
+
 ---
 
 ## Setup
