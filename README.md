@@ -194,10 +194,33 @@ Evaluation metrics:
   <img src="outputs/roc_curve_comparison.png" width="500">
 </p>
 
+**What this shows:**  
+The ROC curve compares the model’s ability to distinguish between churn and non-churn users across different thresholds.
+
+**Key insight:**  
+The Random Forest model shows strong classification performance with a high ROC-AUC, indicating effective separation between churn and active users.
+
 ### Confusion Matrix  
 <p align="center">
   <img src="outputs/best_model_confusion_matrix.png" width="500">
 </p>
+
+**What this shows:**  
+The confusion matrix summarizes the model’s predictions by comparing actual vs predicted churn outcomes.
+
+**Key insight:**  
+The model correctly identifies a large portion of churn users (high recall), but some non-churn users are misclassified, suggesting a trade-off between precision and recall.>
+
+### Feature Importance  
+<p align="center">
+  <img src="outputs/feature_importance.png" width="500">
+</p>
+
+**What this shows:**  
+This plot highlights which features contribute most to the model’s predictions.
+
+**Key insight:**  
+Engagement-related features such as session frequency, completion ratio, and recency are the strongest indicators of churn risk.
 
 ---
 
