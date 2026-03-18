@@ -133,28 +133,57 @@ churned = (recency_days >= 30).astype(int)
 | Retained | ~35% |
 
 ---
+## 4.1 Data Description
 
-### 4. Feature Engineering
+This project uses session-level Netflix viewing data and transforms it into user-level behavioral features for churn prediction.
 
-Session-level viewing data was aggregated into user-level behavioral features.
+### Core Raw Columns
 
-| Feature | Description |
-|---------|-------------|
-| `total_sessions` | Total watch sessions |
-| `total_watch_time` | Total minutes watched |
-| `avg_watch_time` | Average session length |
-| `avg_completion_rate` | Mean completion rate |
-| `recency_days` | Days since last watch |
-| `active_days` | Days between first and last activity |
-| `session_frequency` | Sessions per active day |
-| `genre_diversity` | Number of genres watched |
-| `device_diversity` | Number of devices used |
-| `completion_ratio` | Share of completed sessions |
-| `movie_ratio` | Movie viewing share |
-| `original_ratio` | Netflix original share |
+| Column | Description | Why it matters |
+|--------|-------------|----------------|
+| `user_id` | Unique user identifier | Used to aggregate session-level data into user-level features |
+| `watch_date` | Date of each viewing session | Used to calculate recency and activity patterns |
+| `watch_duration_minutes` | Minutes watched per session | Measures overall engagement intensity |
+| `completion_rate` | Percentage of content watched | Captures how fully users consume content |
+| `action` | Session outcome (e.g., completed) | Used to compute `completion_ratio`, a key engagement metric |
+| `genre_primary` | Primary genre of content | Used to measure content diversity |
+| `content_type` | Movie or TV Series | Used to compute viewing preference ratios |
+| `device_type` | Device used for viewing | Used to measure cross-device engagement |
+| `is_netflix_original` | Whether content is Netflix original | Used to capture preference for platform-owned content |
 
-> Output: `user_features.csv`
+### How `action` is used
+Sessions labeled `"completed"` are counted and converted into `completion_ratio`, which represents the proportion of completed sessions per user.
 
+### 4.2 Feature Engineering
+
+Raw session-level data was aggregated into user-level features to capture long-term engagement behavior.
+
+### Key Feature Transformations
+
+- **Engagement Frequency**
+  - `session_frequency`: Number of sessions per active day  
+  → Captures how consistently users engage with the platform
+
+- **Completion Behavior**
+  - `completion_ratio`: Proportion of completed sessions  
+  → Measures content consumption quality
+
+- **Recency & Activity**
+  - `recency_days`: Days since last activity  
+  → Strong indicator of churn risk
+
+- **Content Diversity**
+  - `genre_diversity`: Number of unique genres watched  
+  → Reflects breadth of user interest
+
+- **Viewing Patterns**
+  - `avg_watch_time`: Average watch duration  
+  - `movie_ratio`: Share of movie consumption  
+  - `original_ratio`: Preference for Netflix originals  
+
+- **Device Usage**
+  - `device_diversity`: Number of devices used  
+  → Indicates platform integration into user habits
 ---
 
 ### 5. Modeling
