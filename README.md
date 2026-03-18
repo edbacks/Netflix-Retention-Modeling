@@ -151,9 +151,6 @@ This project uses session-level Netflix viewing data and transforms it into user
 | `device_type` | Device used for viewing | Used to measure cross-device engagement |
 | `is_netflix_original` | Whether content is Netflix original | Used to capture preference for platform-owned content |
 
-### How `action` is used
-Sessions labeled `"completed"` are counted and converted into `completion_ratio`, which represents the proportion of completed sessions per user.
-
 ## 4.2 Feature Engineering
 
 Raw session-level data was aggregated into user-level features to capture long-term engagement behavior.
