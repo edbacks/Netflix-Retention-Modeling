@@ -168,6 +168,8 @@ Raw session-level data was aggregated into user-level features to capture long-t
 | `original_ratio` | Netflix original sessions / total sessions | Measures platform-specific preference |
 | `device_diversity` | Number of unique devices used | Indicates cross-device engagement |
 
+---
+
 ### 5. Modeling
 
 Three models were trained and compared:
