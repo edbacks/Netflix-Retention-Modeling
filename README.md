@@ -154,37 +154,22 @@ This project uses session-level Netflix viewing data and transforms it into user
 ### How `action` is used
 Sessions labeled `"completed"` are counted and converted into `completion_ratio`, which represents the proportion of completed sessions per user.
 
-### 4.2 Feature Engineering
+## 4.2 Feature Engineering
 
 Raw session-level data was aggregated into user-level features to capture long-term engagement behavior.
 
-### Key Feature Transformations
+### Engineered Features
 
-- **Engagement Frequency**
-  - `session_frequency`: Number of sessions per active day  
-  → Captures how consistently users engage with the platform
-
-- **Completion Behavior**
-  - `completion_ratio`: Proportion of completed sessions  
-  → Measures content consumption quality
-
-- **Recency & Activity**
-  - `recency_days`: Days since last activity  
-  → Strong indicator of churn risk
-
-- **Content Diversity**
-  - `genre_diversity`: Number of unique genres watched  
-  → Reflects breadth of user interest
-
-- **Viewing Patterns**
-  - `avg_watch_time`: Average watch duration  
-  - `movie_ratio`: Share of movie consumption  
-  - `original_ratio`: Preference for Netflix originals  
-
-- **Device Usage**
-  - `device_diversity`: Number of devices used  
-  → Indicates platform integration into user habits
----
+| Feature | How it was created | Why it matters |
+|--------|------------------|----------------|
+| `session_frequency` | Total sessions / active days | Measures consistency of user engagement |
+| `completion_ratio` | Completed sessions / total sessions | Captures how fully users consume content |
+| `recency_days` | Days since last activity | Strong indicator of churn risk |
+| `genre_diversity` | Number of unique genres watched | Reflects breadth of content preference |
+| `avg_watch_time` | Average watch duration per session | Indicates engagement intensity |
+| `movie_ratio` | Movie sessions / total sessions | Captures content type preference |
+| `original_ratio` | Netflix original sessions / total sessions | Measures platform-specific preference |
+| `device_diversity` | Number of unique devices used | Indicates cross-device engagement |
 
 ### 5. Modeling
 
